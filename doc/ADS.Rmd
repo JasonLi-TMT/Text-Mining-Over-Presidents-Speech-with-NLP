@@ -1,5 +1,5 @@
 ---
-title: "ads pj 1"
+title: "General analysis of inaugurations"
 author: "Zishuo Li zl2528"
 date: "January 23, 2017"
 output: html_document
@@ -8,7 +8,7 @@ output: html_document
 #Step1: 
 ##check and install needed packages. Load the libraries.
 
-###In the first part, require all package used below.
+####In the first part, require all package used below.
 ```{r setup, include=FALSE}
 packages.used=c("rvest", "tibble", "qdap", 
                 "sentimentr", "gplots", "dplyr",
@@ -52,7 +52,7 @@ print(R.version)
 #Step2:
 ##Data harvest and process 
 
-###In this part, I read all inauguration, process data and remove all unnecessary words including setting stop words, punctuation and numbers.
+####In this part, I read all inauguration, process data and remove all unnecessary words including setting stop words, punctuation and numbers.
 
 
 ```{r}
@@ -65,7 +65,7 @@ ff.all <- Corpus(DirSource(folder.path))
 ff.all <- tm_map(ff.all,stripWhitespace)
 ff.all <- tm_map(ff.all,content_transformer(tolower))
 #set up stop words
-myStopwords <- c("can","say","one","way","use","also","howev","tell","will","much","need","take","tend","even","like","particular","rather","said","get","well","make","ask","come","end","first","two","help","often","may","might","see","someth","thing","point","post","look","right","now","think","'ve","'re","anoth","put","set","new","good","want","sure","kind","larg","yes","day","quit","sinc","attempt","lack","seen","awar","littl","ever","moreov","though","found","abl","enough","far","earli","away","achiev","last","never","brief","bit","entir","brief","great","lot","must","shall","peopl","upon","america")
+myStopwords <- c("can","say","one","way","use","also","howev","tell","will","much","need","take","tend","even","like","particular","rather","said","get","well","make","ask","come","end","first","two","help","often","may","might","see","someth","thing","point","post","look","right","now","think","'ve","'re","anoth","put","set","new","good","want","sure","kind","larg","yes","day","quit","sinc","attempt","lack","seen","awar","littl","ever","moreov","though","found","abl","enough","far","earli","away","achiev","last","never","brief","bit","entir","lot","must","shall")
 ff.all <- tm_map(ff.all,removeWords,stopwords("english"))
 ff.all <- tm_map(ff.all,removeWords,myStopwords)
 ff.all <- tm_map(ff.all,stemDocument)
@@ -78,9 +78,9 @@ ff.all <- tm_map(ff.all,PlainTextDocument)
 
 ##Constructing dates matrix
 
-###Since I would like to see the change of inauguration with time passing by, this chunk I mainly deal with dates data of inauguration and make it a tidy data frame, so that It could be merge with the word matrix and sentence matrix.
+####Since I would like to see the change of inauguration with time passing by, this chunk I mainly deal with dates data of inauguration and make it a tidy data frame, so that It could be merge with the word matrix and sentence matrix.
  
-```{r}
+```{r,warning=FALSE}
 dates<- read.table("../data/InauguationDates.txt",header = T,sep="\t")
 for( i in 1:ncol(dates)){dates[,i]<- dates[,i] %>% as.character()}  
 choose_year <- function(x){substr(x,nchar(x)-3,nchar(x))} #set a function to choose year rather than day/month/year
@@ -123,12 +123,11 @@ dates_prez <- answer
 head(dates_prez)
 ```
 
-#Step3: Term analysis
+#Step3: Term analysis/Topic analysis
 
 ##topic modeling
 
-###In this chunk, I generate document term matrix and use LDA method to do topic modeling. Illustrate 15 topics and topic terms.
-###In this case, k=15, means 15 topics.
+####In this chunk, I generate document term matrix and use LDA method to do topic modeling. Illustrate 15 topics and topic terms.In this case, k=15, means 15 topics.
 
 ```{r}
 dtm <- DocumentTermMatrix(ff.all)
@@ -171,7 +170,7 @@ ldaOut.terms
 ```
 ##Hierarchal Term Clustering
 
-###In this part, I continue to process data and cluster the most used terms into 5 group 
+####In this part, I continue to process data and cluster the most used terms into 5 group 
 ```{r}
 dtmss <- removeSparseTerms(dtm, 0.2)
 d <- dist(t(dtmss), method="euclidian")   
@@ -229,8 +228,7 @@ for(i in 1:length(speech.sentance)){
   if(length(sentences)>0){
     emotions=get_nrc_sentiment(sentences)
     word.count=word_count(sentences)
-    # colnames(emotions)=paste0("emo.", colnames(emotions))
-    # in case the word counts are zeros?
+    #Count the word in each sentences
     emotions=diag(1/(word.count+0.01))%*%as.matrix(emotions)
     term =as.numeric(substr(prez.out[i],nchar(prez.out[i]),nchar(prez.out[i])))
     File=as.character(substr(prez.out,1,nchar(prez.out)-2)[i])
@@ -260,7 +258,7 @@ sentence.list <-cbind(sentence.list_part1,sentence.list_part2)
 colnames(sentence.list) <- name_inaug
 ```
 
-###In this chunk, I merge the sentence matrix with the date matrix constructed above through names of president and terms of each president.
+####In this chunk, I merge the sentence matrix with the date matrix constructed above through names of president and terms of each president.
 
 ```{r}
 sentence.list<- merge(sentence.list,dates_prez,by.x = c("File","term"),by.y = c("File","term"))
@@ -268,7 +266,7 @@ colnames(sentence.list)<-c(colnames(sentence.list)[1:length(colnames(sentence.li
 head(sentence.list,2)
 ```
 
-###In this chunk, I plot the total length of sentences of every inauguration to see if there is any trend existing.
+####In this chunk, I plot the total length of sentences of every inauguration to see if there is any trend existing.
 
 ```{r,warning=FALSE}
 par(mfrow=c(2,2))
@@ -282,23 +280,22 @@ ggplot(data =timeline )+
   geom_line(mapping = aes(x=year,y=totalwords))
 ```
 
-###In this chunk, I plot the word count of every inauguration.
+####In this chunk, I plot the word count of every inauguration.
 
 ```{r}
 ggplot(data = timeline)+  
   geom_line(mapping = aes(x=year,y=totalsentenca))
 ```
 
-###Since Donald Trump has been so popular recently, In this chunk, ICheck the shortest and longest sentences that donald trump said.
+####Since Donald Trump has been so popular recently, In this chunk, ICheck the shortest and longest sentences that donald trump said.
 ```{r}
 sentence_Donald<- filter(sentence.list,File=="DonaldJTrump")
 arrange(sentence_Donald,desc(word.count))[1:3,"sentences"]
-arrange(sentence_Donald,word.count)[1:4,"sentences"]
+arrange(sentence_Donald,word.count)[1:10,"sentences"]
 ```
 
-###In this 
 
-```{r}
+```{r,include=FALSE}
 f.plotsent.len=function(In.list, InFile, InTerm, President){
   
   col.use=c("lightgray", "red2", "darkgoldenrod1", 
@@ -327,8 +324,8 @@ f.plotsent.len=function(In.list, InFile, InTerm, President){
 }
 ```
 
-
-Data analysis---sentiment analysis
+## Relationship between Sentence length and emotions
+####In this chunk, f.plotsent.len is a function defined above and it mainly choose the most strong emotion in each sentence and assign specific color to that sentence.
 ```{r}
 par(mfrow=c(3,1), mar=c(1,0,2,0), bty="n", xaxt="n", yaxt="n", font.main=1)
 
@@ -338,8 +335,9 @@ f.plotsent.len(In.list=sentence.list, InFile="BarackObama",  InTerm=1, President
 
 f.plotsent.len(In.list=sentence.list, InFile="GeorgeWBush", InTerm=1, President="George W. Bush")
 ```
-The most emotionally charged sentences
-of Barack Obama and Donald Trump
+
+
+####The most emotionally charged sentences of Barack Obama and Donald Trump
 ```{r}
 print("Barack Obama")
 speech.df=tbl_df(sentence.list)%>%
@@ -356,15 +354,28 @@ speech.df=tbl_df(sentence.list)%>%
 speech.df=as.data.frame(speech.df)
 as.character(speech.df$sentences[apply(speech.df[,-1], 2, which.max)])
 ```
-cluster of emotions
+## comparation of emotions
+
+####In this chunk, I compare the emotions between all inaugural speeches, speeche of Donald Trump and speech of Obama 
+
 ```{r}
 #The distribution of emotions in all sentences
-par(mfrow=c(1,1))
+par(mfrow=c(3,1))
 emo.means=colMeans(select(sentence.list, anger:trust)>0.01)
-barplot(height = emo.means[order(emo.means)],horiz = TRUE,col=1:8,main="Inaugural Speeches",names=names(emo.means),legend = names(emo.means),args.legend = list(x="bottomright",cex=1.2))
+barplot(height = emo.means[order(emo.means)],horiz = TRUE,col=1:8,main="Inaugural Speeches",names=names(emo.means),legend = names(emo.means),args.legend = list(x="bottomright",cex=0.9))
+
+emo.means=colMeans(select(sentence_Donald, anger:trust)>0.01)
+barplot(height = emo.means[order(emo.means)],horiz = TRUE,col=1:8,main="Donald Trump",names=names(emo.means),legend = names(emo.means),args.legend = list(x="bottomright",cex=0.9))
+
+sentence_Obama<- filter(sentence.list,File=="BarackObama")
+emo.means=colMeans(select(sentence_Obama, anger:trust)>0.01)
+barplot(height = emo.means[order(emo.means)],horiz = TRUE,col=1:8,main="Barack Obama",names=names(emo.means),legend = names(emo.means),args.legend = list(x="bottomright",cex=0.9))
 
 ```
 
+##Emotion cluster
+
+####In this chunk, I cluster all presidents according to the emotions matrix of their inauguration using Kmeans method.
 ```{r}
 presid.summary=sentence.list%>%
   group_by(File)%>%
