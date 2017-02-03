@@ -130,6 +130,113 @@ $(document).ready(function () {
 <h2>check and install needed packages. Load the libraries.</h2>
 <div id="in-the-first-part-require-all-package-used-below." class="section level4">
 <h4>In the first part, require all package used below.</h4>
+<pre class="r"><code>packages.used=c(&quot;rvest&quot;, &quot;tibble&quot;, &quot;qdap&quot;, 
+                &quot;sentimentr&quot;, &quot;gplots&quot;, &quot;dplyr&quot;,
+                &quot;tm&quot;, &quot;syuzhet&quot;, &quot;factoextra&quot;, 
+                &quot;beeswarm&quot;, &quot;scales&quot;, &quot;RColorBrewer&quot;,
+                &quot;RANN&quot;, &quot;tm&quot;, &quot;topicmodels&quot;)
+
+# check packages that need to be installed.
+packages.needed=setdiff(packages.used, 
+                        intersect(installed.packages()[,1], 
+                                  packages.used))
+# install additional packages
+if(length(packages.needed)&gt;0){
+  install.packages(packages.needed, dependencies = TRUE)
+}
+if (Sys.getenv(&quot;JAVA_HOME&quot;)!=&quot;&quot;)
+  Sys.setenv(JAVA_HOME=&quot;&quot;)
+library(rJava)
+library(tm)</code></pre>
+<pre><code>## Loading required package: NLP</code></pre>
+<pre class="r"><code>library(wordcloud)</code></pre>
+<pre><code>## Loading required package: RColorBrewer</code></pre>
+<pre class="r"><code>library(RColorBrewer)
+library(dplyr)</code></pre>
+<pre><code>## 
+## Attaching package: 'dplyr'</code></pre>
+<pre><code>## The following objects are masked from 'package:stats':
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>library(tidytext)
+library(SnowballC)
+library(wordnet)</code></pre>
+<pre><code>## Warning in initDict(): cannot find WordNet 'dict' directory: please set the
+## environment variable WNHOME to its parent</code></pre>
+<pre class="r"><code>library(ggplot2)</code></pre>
+<pre><code>## 
+## Attaching package: 'ggplot2'</code></pre>
+<pre><code>## The following object is masked from 'package:NLP':
+## 
+##     annotate</code></pre>
+<pre class="r"><code>library(sentimentr)
+library(qdap)</code></pre>
+<pre><code>## Loading required package: qdapDictionaries</code></pre>
+<pre><code>## Loading required package: qdapRegex</code></pre>
+<pre><code>## 
+## Attaching package: 'qdapRegex'</code></pre>
+<pre><code>## The following object is masked from 'package:ggplot2':
+## 
+##     %+%</code></pre>
+<pre><code>## The following objects are masked from 'package:dplyr':
+## 
+##     escape, explain</code></pre>
+<pre><code>## Loading required package: qdapTools</code></pre>
+<pre><code>## 
+## Attaching package: 'qdapTools'</code></pre>
+<pre><code>## The following object is masked from 'package:dplyr':
+## 
+##     id</code></pre>
+<pre><code>## 
+## Attaching package: 'qdap'</code></pre>
+<pre><code>## The following object is masked from 'package:wordnet':
+## 
+##     synonyms</code></pre>
+<pre><code>## The following object is masked from 'package:dplyr':
+## 
+##     %&gt;%</code></pre>
+<pre><code>## The following objects are masked from 'package:tm':
+## 
+##     as.DocumentTermMatrix, as.TermDocumentMatrix</code></pre>
+<pre><code>## The following object is masked from 'package:NLP':
+## 
+##     ngrams</code></pre>
+<pre><code>## The following object is masked from 'package:base':
+## 
+##     Filter</code></pre>
+<pre class="r"><code>library(NLP)
+library(openNLP)
+library(topicmodels)
+library(syuzhet)</code></pre>
+<pre><code>## 
+## Attaching package: 'syuzhet'</code></pre>
+<pre><code>## The following object is masked from 'package:sentimentr':
+## 
+##     get_sentences</code></pre>
+<pre class="r"><code>library(beeswarm)
+library(factoextra)
+library(cluster)   
+library(fpc) 
+# The notebook was prepared with the following version.
+print(R.version)</code></pre>
+<pre><code>##                _                           
+## platform       x86_64-w64-mingw32          
+## arch           x86_64                      
+## os             mingw32                     
+## system         x86_64, mingw32             
+## status                                     
+## major          3                           
+## minor          3.2                         
+## year           2016                        
+## month          10                          
+## day            31                          
+## svn rev        71607                       
+## language       R                           
+## version.string R version 3.3.2 (2016-10-31)
+## nickname       Sincere Pumpkin Patch</code></pre>
 </div>
 </div>
 </div>
