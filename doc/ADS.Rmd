@@ -9,7 +9,7 @@ output: html_document
 ##check and install needed packages. Load the libraries.
 
 ####In the first part, require all package used below.
-```{r setup}
+```{r setup,include=FALSE}
 packages.used=c("rvest", "tibble", "qdap", 
                 "sentimentr", "gplots", "dplyr",
                 "tm", "syuzhet", "factoextra", 
