@@ -297,17 +297,6 @@ ggplot(data =timeline2 )+
 
 ```
 
-####In this chunk, I plot the word count of every inauguration based on term.
-
-```{r}
-ggplot(data = timeline1)+  
-  geom_line(mapping = aes(x=year,y=totalsentenca))+
-  labs(title="term1 word count")
-
-ggplot(data = timeline2)+  
-  geom_line(mapping = aes(x=year,y=totalsentenca))+
-  labs(title="term2 Word count")
-```
 
 ####Since Donald Trump has been so popular recently, In this chunk, ICheck the shortest and longest sentences that donald trump said.
 ```{r}
