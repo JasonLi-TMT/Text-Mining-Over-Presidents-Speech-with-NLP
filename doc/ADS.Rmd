@@ -170,15 +170,15 @@ ldaOut.terms
 ```
 ##Hierarchal Term Clustering
 
-####In this part, I continue to process data and cluster the most used terms into 5 group 
+####In this part, I continue to process data and cluster the most used terms into 7 group 
 ```{r}
 dtmss <- removeSparseTerms(dtm, 0.2)
 d <- dist(t(dtmss), method="euclidian")   
 fit <- hclust(d=d, method="ward.D")   
 plot.new()
 plot(fit, hang=-1)
-groups <- cutree(fit, k=5)   # "k=" defines the number of clusters you are using   
-rect.hclust(fit, k=5, border="red") 
+groups <- cutree(fit, k=7)  # "k=" defines the number of clusters you are using   
+rect.hclust(fit, k=7, border="red") 
 ```
 ##K means cluster
 
@@ -269,22 +269,44 @@ head(sentence.list,2)
 ####In this chunk, I plot the total length of sentences of every inauguration to see if there is any trend existing.
 
 ```{r,warning=FALSE}
-par(mfrow=c(2,2))
-d<- group_by(sentence.list,year)
-timeline<- summarise(d,
+par(mfrow=c(1,2))
+
+sentence.list_term1 <- filter(sentence.list,term==1)
+
+sentence.list_term2 <- filter(sentence.list,term==2)
+
+term1_data<- group_by(sentence.list_term1,year)
+timeline1<- summarise(term1_data,
           totalwords=sum(word.count),
           totalsentenca=length(sent.id)
           )
 
-ggplot(data =timeline )+
-  geom_line(mapping = aes(x=year,y=totalwords))
+ggplot(data =timeline1 )+
+  geom_line(mapping = aes(x=year,y=totalwords))+
+  labs(title="term1 totalwords")
+
+term2_data<- group_by(sentence.list_term2,year)
+timeline2<- summarise(term2_data,
+          totalwords=sum(word.count),
+          totalsentenca=length(sent.id)
+          )
+
+ggplot(data =timeline2 )+
+  geom_line(mapping = aes(x=year,y=totalwords))+
+  labs(title="term2 totalwords")
+
 ```
 
-####In this chunk, I plot the word count of every inauguration.
+####In this chunk, I plot the word count of every inauguration based on term.
 
 ```{r}
-ggplot(data = timeline)+  
-  geom_line(mapping = aes(x=year,y=totalsentenca))
+ggplot(data = timeline1)+  
+  geom_line(mapping = aes(x=year,y=totalsentenca))+
+  labs(title="term1 word count")
+
+ggplot(data = timeline2)+  
+  geom_line(mapping = aes(x=year,y=totalsentenca))+
+  labs(title="term2 Word count")
 ```
 
 ####Since Donald Trump has been so popular recently, In this chunk, ICheck the shortest and longest sentences that donald trump said.
