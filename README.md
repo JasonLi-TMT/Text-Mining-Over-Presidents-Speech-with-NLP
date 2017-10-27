@@ -1,6 +1,7 @@
-# Spring 2017
-# Project 1: Text Mining Over Presidents' Speech
-# What did the presidents say at their inauguation?
+
+# Text Mining Over Presidents' Speech
+
+## What did the presidents say at their inauguation?
 
 ![image](figs/title.jpg)
 
