@@ -6,7 +6,7 @@
 ![image](figs/title.jpg)
 
 
-+ Projec title: Text Mining Over Presidents' Speech
++ Project title: Text Mining Over Presidents' Speech
 + This project is conducted by: Jason Zishuo Li
 
 + Project summary: This project analyzed presidents' speech data, performed feature engineering with NLP, built model for the features & visualized the result with R. 
