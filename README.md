@@ -27,7 +27,7 @@
 
 ### Some screenshots:
 
-![image](figs/1.png)
+![image](figs/1.png =24x48)
 
 ![image](figs/2.png)
 
