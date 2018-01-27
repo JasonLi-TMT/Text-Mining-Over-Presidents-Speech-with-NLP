@@ -28,8 +28,6 @@
 ### Some screenshots:
 
 
-![image](figs/Picture1.png)
-
 ![image](figs/1.png)
 
 ![image](figs/2.png)
