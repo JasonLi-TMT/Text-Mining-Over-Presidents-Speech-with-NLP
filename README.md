@@ -27,5 +27,6 @@
 
 ### Some screenshots:
 
-![image](figs/title.jpg)
+![image](figs/Picture1.png)
+
 
