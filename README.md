@@ -27,8 +27,6 @@
 
 ### Some screenshots:
 
-<img src="https://github.com/ZishuoLi/Text-Mining-Over-Presidents-Speech-with-NLP/blob/master/figs/1.png" height="600" width="800">
-
 <img src="https://github.com/ZishuoLi/Text-Mining-Over-Presidents-Speech-with-NLP/blob/master/figs/2.png" height="600" width="800">
 
 <img src="https://github.com/ZishuoLi/Text-Mining-Over-Presidents-Speech-with-NLP/blob/master/figs/3.png" height="600" width="800">
