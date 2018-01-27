@@ -1,5 +1,5 @@
 
-# Text Mining Over Presidents' Speech
+# Text Mining Over Presidents' Speech with NLP
 
 ## What did the presidents say at their inauguation?
 
@@ -17,7 +17,7 @@
 
 + Step1: Setting R environment: install & load packages
 
-+ Step2: Setting Data harvest & process: clean data, remove stop words/punc, generate dates matrix
++ Step2: Data harvest & process: clean data, remove stop words/punc, generate dates matrix
 
 + Step3: Term analysis\Topic analysis: Generate document term matrix & use LDA to do topic modeling.
 
