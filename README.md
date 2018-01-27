@@ -27,23 +27,21 @@
 
 ### Some screenshots:
 
-<img src="https://github.com/ZishuoLi/Text-Mining-Over-Presidents-Speech-with-NLP/figs/2.png" width="48">
+<img src="https://github.com/ZishuoLi/Text-Mining-Over-Presidents-Speech-with-NLP/blob/master/figs/1.png" height="600" width="800">
+
+<img src="https://github.com/ZishuoLi/Text-Mining-Over-Presidents-Speech-with-NLP/blob/master/figs/2.png" height="600" width="800">
 
 <img src="https://github.com/ZishuoLi/Text-Mining-Over-Presidents-Speech-with-NLP/blob/master/figs/3.png" height="600" width="800">
 
-![image](figs/1.png =24x48)
+<img src="https://github.com/ZishuoLi/Text-Mining-Over-Presidents-Speech-with-NLP/blob/master/figs/4.png" height="600" width="800">
 
-![image](figs/2.png)
+<img src="https://github.com/ZishuoLi/Text-Mining-Over-Presidents-Speech-with-NLP/blob/master/figs/5.png" height="600" width="800">
 
-![image](figs/3.png)
+<img src="https://github.com/ZishuoLi/Text-Mining-Over-Presidents-Speech-with-NLP/blob/master/figs/6.png" height="600" width="800">
 
-![image](figs/4.png)
+<img src="https://github.com/ZishuoLi/Text-Mining-Over-Presidents-Speech-with-NLP/blob/master/figs/7.png" height="600" width="800">
 
-![image](figs/5.png)
-
-![image](figs/6.png)
-
-![image](figs/7.png)
+<img src="https://github.com/ZishuoLi/Text-Mining-Over-Presidents-Speech-with-NLP/blob/master/figs/8.png" height="600" width="800">
 
 ![image](figs/8.png)
 
