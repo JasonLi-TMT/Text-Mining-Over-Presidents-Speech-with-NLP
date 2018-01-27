@@ -11,4 +11,9 @@
 
 + Project summary: This project analyzed presidents' speech data, performed feature engineering with NLP, built model for the features & visualized the result with R. 
 
-### 
+### Steps:
+
++ Step1: Setting R environment (install & load packages):
+
+packages needed: rJava,tm,wordcloud,RColorBrewer,dplyr,tidytext,SnowballC,wordnet,ggplot2,sentimentr,qdap,NLP,openNLP,topicmodels,syuzhet,beeswarm,factoextra,cluster,fpc
+
