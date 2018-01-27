@@ -27,6 +27,8 @@
 
 ### Some screenshots:
 
+<img src="https://github.com/ZishuoLi/figs/1.png" width="48">
+
 ![image](figs/1.png =24x48)
 
 ![image](figs/2.png)
