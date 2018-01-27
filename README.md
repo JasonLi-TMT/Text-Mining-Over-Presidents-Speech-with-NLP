@@ -27,6 +27,40 @@
 
 ### Some screenshots:
 
+
 ![image](figs/Picture1.png)
+
+![image](figs/1.png)
+
+![image](figs/2.png)
+
+![image](figs/3.png)
+
+![image](figs/4.png)
+
+![image](figs/5.png)
+
+![image](figs/6.png)
+
+![image](figs/7.png)
+
+![image](figs/8.png)
+
+![image](figs/9.png)
+
+![image](figs/0.png)
+
+![image](figs/11.png)
+
+
+
+
+
+
+
+
+
+
+
 
 
