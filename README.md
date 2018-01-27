@@ -13,7 +13,7 @@
 
 ### Steps:
 
-#### details steps could check ADS.Rmd file under "doc" folder
+#### details steps could be checked through ADS.Rmd file under "doc" folder
 
 + Step1: Setting R environment: install & load packages
 
@@ -25,4 +25,7 @@
 
 + Step5: Sentiment analysis: Extracted sentiment features from sentence & visualized relationship.
 
+### Some screenshots:
+
+![image](figs/title.jpg)
 
