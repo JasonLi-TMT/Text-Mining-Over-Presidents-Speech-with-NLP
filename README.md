@@ -27,7 +27,6 @@
 
 ### Some screenshots:
 
-
 ![image](figs/1.png)
 
 ![image](figs/2.png)
