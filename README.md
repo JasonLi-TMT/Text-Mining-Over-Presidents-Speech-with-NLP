@@ -13,7 +13,16 @@
 
 ### Steps:
 
-+ Step1: Setting R environment (install & load packages):
+#### details steps could check ADS.Rmd file under "doc" folder
 
-packages needed: rJava,tm,wordcloud,RColorBrewer,dplyr,tidytext,SnowballC,wordnet,ggplot2,sentimentr,qdap,NLP,openNLP,topicmodels,syuzhet,beeswarm,factoextra,cluster,fpc
++ Step1: Setting R environment: install & load packages
+
++ Step2: Setting Data harvest & process: clean data, remove stop words/punc, generate dates matrix
+
++ Step3: Term analysis\Topic analysis: Generate document term matrix & use LDA to do topic modeling.
+
++ Step4: Topic Cluster: Ultilized K-means Cluster & Hierarchal Cluster to cluster the term.
+
++ Step5: Sentiment analysis: Extracted sentiment features from sentence & visualized relationship.
+
 
