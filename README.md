@@ -29,7 +29,7 @@
 
 <img src="https://github.com/ZishuoLi/Text-Mining-Over-Presidents-Speech-with-NLP/figs/2.png" width="48">
 
-<img src="https://github.com/ZishuoLi/Text-Mining-Over-Presidents-Speech-with-NLP/blob/master/figs/3.png" height="700" width="1000">
+<img src="https://github.com/ZishuoLi/Text-Mining-Over-Presidents-Speech-with-NLP/blob/master/figs/3.png" height="500" width="800">
 
 ![image](figs/1.png =24x48)
 
